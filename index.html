@@ -10,7 +10,9 @@
     <main class="min-h-screen p-8">
       <div class="mx-auto max-w-5xl">
         <section
-          id="paper-scroll"
+          data-wheel-horizontal-scroll
+          data-wheel-horizontal-zone="22"
+          data-wheel-horizontal-speed="1"
           class="relative h-[420px] w-[560px] overflow-auto rounded-sm border border-stone-300 bg-white p-8 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),0_8px_18px_-8px_rgba(0,0,0,0.25)]"
           aria-label="paper"
         >
@@ -35,28 +37,33 @@
     </main>
     <script>
       (() => {
-        const scroller = document.getElementById("paper-scroll");
-        if (!scroller) return;
+        function enableBottomZoneHorizontalWheel(scroller, options = {}) {
+          if (!scroller || scroller.dataset.horizontalWheelBound === "true") return;
 
-        const bottomWheelZonePx = 22;
+          const zonePx = Number(options.zonePx ?? scroller.dataset.wheelHorizontalZone ?? 22);
+          const speed = Number(options.speed ?? scroller.dataset.wheelHorizontalSpeed ?? 1);
 
-        scroller.addEventListener(
-          "wheel",
-          (event) => {
-            const rect = scroller.getBoundingClientRect();
-            const localY = event.clientY - rect.top;
-            const isInBottomZone = localY >= scroller.clientHeight - bottomWheelZonePx;
+          const onWheel = (event) => {
+            const localY = event.clientY - scroller.getBoundingClientRect().top;
+            const isInBottomZone = localY >= scroller.clientHeight - zonePx;
             const hasHorizontalOverflow = scroller.scrollWidth > scroller.clientWidth;
 
             if (!isInBottomZone || !hasHorizontalOverflow) return;
 
             event.preventDefault();
-
             const wheelDelta = event.deltaY !== 0 ? event.deltaY : event.deltaX;
-            scroller.scrollLeft += wheelDelta;
-          },
-          { passive: false }
-        );
+            scroller.scrollLeft += wheelDelta * speed;
+          };
+
+          scroller.addEventListener("wheel", onWheel, { passive: false });
+          scroller.dataset.horizontalWheelBound = "true";
+        }
+
+        document.querySelectorAll("[data-wheel-horizontal-scroll]").forEach((node) => {
+          enableBottomZoneHorizontalWheel(node);
+        });
+
+        window.enableBottomZoneHorizontalWheel = enableBottomZoneHorizontalWheel;
       })();
     </script>
   </body>
