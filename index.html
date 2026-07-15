@@ -1,102 +1,192 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
     <title>Horizontal Scroll Demo</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="min-h-screen bg-stone-200 antialiased">
-    <main class="min-h-screen p-8">
-      <div class="mx-auto max-w-5xl space-y-8">
-        <section
-          data-wheel-horizontal-scroll
-          class="relative h-[420px] w-[560px] overflow-auto rounded-sm border border-stone-300 bg-white p-8 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),0_8px_18px_-8px_rgba(0,0,0,0.25)]"
-          aria-label="paper"
-        >
-          <div class="min-w-[980px] text-stone-700">
-            <div class="space-y-4 text-sm leading-7">
-              <p>lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-              <p>nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit.</p>
-              <p>ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
-              <p>vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-              <p>similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.</p>
-              <p>omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus.</p>
-              <p>ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit integer nec odio praesent libero sed cursus ante dapibus diam sed nisi nulla quis sem at nibh elementum imperdiet.</p>
-              <p>duis sagittis ipsum praesent mauris fusce nec tellus sed augue semper porta mauris massa vestibulum lacinia arcu eget nulla class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos himenaeos curabitur sodales ligula in libero.</p>
-              <p>sed dignissim lacinia nunc curabitur tortor pellentesque nibh aenean quam in scelerisque sem at dolor maecenas mattis sed convallis tristique sem proin ut ligula vel nunc egestas porttitor morbi lectus risus iaculis vel suscipit quis luctus non massa.</p>
-            </div>
-          </div>
-        </section>
+</head>
 
-        <section
-          data-wheel-horizontal-scroll
-          class="relative h-[320px] w-[520px] overflow-auto rounded-sm border border-stone-300 bg-white p-7 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),0_8px_18px_-8px_rgba(0,0,0,0.25)]"
-          aria-label="paper"
-        >
-          <div class="min-w-[920px] text-stone-700">
-            <div class="space-y-4 text-sm leading-7">
-              <p>lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-              <p>totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-              <p>neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
-              <p>nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus.</p>
-              <p>qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio.</p>
-              <p>nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</p>
-            </div>
-          </div>
-        </section>
-      </div>
+<body class="min-h-screen bg-stone-200 antialiased">
+    <main class="min-h-screen p-8">
+        <div class="mx-auto max-w-5xl space-y-8">
+            <section
+                data-wheel-horizontal-scroll
+                class="relative h-[420px] w-[560px] overflow-auto rounded-sm border border-stone-300 bg-white p-8 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),0_8px_18px_-8px_rgba(0,0,0,0.25)]"
+                aria-label="paper"
+            >
+                <div class="min-w-[980px] text-stone-700">
+                    <div class="space-y-4 text-sm leading-7">
+                        <p>
+                            lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia
+                            deserunt mollit anim id est laborum.
+                        </p>
+                        <p>
+                            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta sunt explicabo.
+                        </p>
+                        <p>
+                            nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia
+                            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro
+                            quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit.
+                        </p>
+                        <p>
+                            ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam
+                            nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in
+                            ea voluptate velit esse quam nihil molestiae consequatur.
+                        </p>
+                        <p>
+                            vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et
+                            iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+                            corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+                            provident.
+                        </p>
+                        <p>
+                            similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum
+                            fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum
+                            soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.
+                        </p>
+                        <p>
+                            omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut
+                            officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae
+                            sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus.
+                        </p>
+                        <p>
+                            ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus
+                            asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit integer nec
+                            odio praesent libero sed cursus ante dapibus diam sed nisi nulla quis sem at nibh
+                            elementum imperdiet.
+                        </p>
+                        <p>
+                            duis sagittis ipsum praesent mauris fusce nec tellus sed augue semper porta mauris massa
+                            vestibulum lacinia arcu eget nulla class aptent taciti sociosqu ad litora torquent per
+                            conubia nostra per inceptos himenaeos curabitur sodales ligula in libero.
+                        </p>
+                        <p>
+                            sed dignissim lacinia nunc curabitur tortor pellentesque nibh aenean quam in scelerisque
+                            sem at dolor maecenas mattis sed convallis tristique sem proin ut ligula vel nunc
+                            egestas porttitor morbi lectus risus iaculis vel suscipit quis luctus non massa.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                data-wheel-horizontal-scroll
+                class="relative h-[320px] w-[520px] overflow-auto rounded-sm border border-stone-300 bg-white p-7 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),0_8px_18px_-8px_rgba(0,0,0,0.25)]"
+                aria-label="paper"
+            >
+                <div class="min-w-[920px] text-stone-700">
+                    <div class="space-y-4 text-sm leading-7">
+                        <p>
+                            lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia
+                            deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium.
+                        </p>
+                        <p>
+                            totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+                            vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                            odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
+                            nesciunt.
+                        </p>
+                        <p>
+                            neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci
+                            velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis
+                            suscipit laboriosam.
+                        </p>
+                        <p>
+                            nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in
+                            ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum
+                            fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos
+                            ducimus.
+                        </p>
+                        <p>
+                            qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+                            molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui
+                            officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum
+                            facilis est et expedita distinctio.
+                        </p>
+                        <p>
+                            nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
+                            quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus
+                            temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+                            eveniet ut et voluptates repudiandae sint.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
     <script>
-      function measureSystemScrollbarThickness() {
-        const probe = document.createElement("div");
-        probe.style.position = "absolute";
-        probe.style.visibility = "hidden";
-        probe.style.overflow = "scroll";
-        probe.style.width = "100px";
-        probe.style.height = "100px";
-        document.body.appendChild(probe);
-        const thickness = probe.offsetHeight - probe.clientHeight;
-        document.body.removeChild(probe);
-        return thickness;
-      }
+        function measureSystemScrollbarThickness() {
+            const probe = document.createElement("div");
+            probe.style.position = "absolute";
+            probe.style.visibility = "hidden";
+            probe.style.overflow = "scroll";
+            probe.style.width = "100px";
+            probe.style.height = "100px";
+            document.body.appendChild(probe);
+            const thickness = probe.offsetHeight - probe.clientHeight;
+            document.body.removeChild(probe);
+            return thickness;
+        }
 
-      const systemScrollbarThickness = measureSystemScrollbarThickness();
+        const systemScrollbarThickness = measureSystemScrollbarThickness();
 
-      function enableBottomZoneHorizontalWheel(scroller) {
-        const style = getComputedStyle(scroller);
-        const borderTop = parseFloat(style.borderTopWidth) || 0;
-        const borderBottom = parseFloat(style.borderBottomWidth) || 0;
+        function enableBottomZoneHorizontalWheel(scroller) {
+            const style = getComputedStyle(scroller);
+            const borderTop = parseFloat(style.borderTopWidth) || 0;
+            const borderBottom = parseFloat(style.borderBottomWidth) || 0;
 
-        scroller.addEventListener(
-          "wheel",
-          (event) => {
-            const rect = scroller.getBoundingClientRect();
-            const y = event.clientY - rect.top;
+            scroller.addEventListener(
+                "wheel",
+                (event) => {
+                    const rect = scroller.getBoundingClientRect();
+                    const y = event.clientY - rect.top;
 
-            const scrollbarThickness = Math.max(
-              0,
-              rect.height - scroller.clientHeight - borderTop - borderBottom
+                    const scrollbarThickness = Math.max(
+                        0,
+                        rect.height - scroller.clientHeight - borderTop - borderBottom,
+                    );
+                    const usedThickness = scrollbarThickness || systemScrollbarThickness;
+
+                    const isInBottomZone = y > rect.height - usedThickness && y <= rect.height;
+                    const hasHorizontalOverflow = scroller.scrollWidth > scroller.clientWidth;
+
+                    if (!isInBottomZone || !hasHorizontalOverflow) return;
+
+                    event.preventDefault();
+                    scroller.scrollLeft += event.deltaY !== 0 ? event.deltaY : event.deltaX;
+                },
+                { passive: false },
             );
-            const usedThickness = scrollbarThickness || systemScrollbarThickness;
+        }
 
-            const isInBottomZone = y > rect.height - usedThickness && y <= rect.height;
-            const hasHorizontalOverflow = scroller.scrollWidth > scroller.clientWidth;
-
-            if (!isInBottomZone || !hasHorizontalOverflow) return;
-
-            event.preventDefault();
-            scroller.scrollLeft += event.deltaY !== 0 ? event.deltaY : event.deltaX;
-          },
-          { passive: false }
-        );
-      }
-
-      document.querySelectorAll("[data-wheel-horizontal-scroll]").forEach(enableBottomZoneHorizontalWheel);
+        document.querySelectorAll("[data-wheel-horizontal-scroll]").forEach(enableBottomZoneHorizontalWheel);
     </script>
-  </body>
+</body>
+
 </html>
