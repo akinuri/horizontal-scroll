@@ -11,7 +11,6 @@
       <div class="mx-auto max-w-5xl space-y-8">
         <section
           data-wheel-horizontal-scroll
-          data-wheel-horizontal-zone="22"
           data-wheel-horizontal-speed="1"
           class="relative h-[420px] w-[560px] overflow-auto rounded-sm border border-stone-300 bg-white p-8 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),0_8px_18px_-8px_rgba(0,0,0,0.25)]"
           aria-label="paper"
@@ -36,7 +35,6 @@
 
         <section
           data-wheel-horizontal-scroll
-          data-wheel-horizontal-zone="24"
           data-wheel-horizontal-speed="1"
           class="relative h-[320px] w-[520px] overflow-auto rounded-sm border border-stone-300 bg-white p-7 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),0_8px_18px_-8px_rgba(0,0,0,0.25)]"
           aria-label="paper"
@@ -56,35 +54,64 @@
       </div>
     </main>
     <script>
-      (() => {
-        function enableBottomZoneHorizontalWheel(scroller, options = {}) {
-          if (!scroller || scroller.dataset.horizontalWheelBound === "true") return;
+      function measureSystemScrollbarThickness() {
+        const probe = document.createElement("div");
+        probe.style.position = "absolute";
+        probe.style.visibility = "hidden";
+        probe.style.overflow = "scroll";
+        probe.style.width = "100px";
+        probe.style.height = "100px";
+        document.body.appendChild(probe);
+        const thickness = probe.offsetHeight - probe.clientHeight;
+        document.body.removeChild(probe);
+        return thickness;
+      }
 
-          const zonePx = Number(options.zonePx ?? scroller.dataset.wheelHorizontalZone ?? 22);
-          const speed = Number(options.speed ?? scroller.dataset.wheelHorizontalSpeed ?? 1);
+      const systemScrollbarThickness = measureSystemScrollbarThickness();
 
-          const onWheel = (event) => {
-            const localY = event.clientY - scroller.getBoundingClientRect().top;
-            const isInBottomZone = localY >= scroller.clientHeight - zonePx;
-            const hasHorizontalOverflow = scroller.scrollWidth > scroller.clientWidth;
+      function enableBottomZoneHorizontalWheel(scroller, options = {}) {
+        if (!scroller || scroller.dataset.horizontalWheelBound === "true") return;
 
-            if (!isInBottomZone || !hasHorizontalOverflow) return;
+        const style = getComputedStyle(scroller);
+        const borderTop = parseFloat(style.borderTopWidth) || 0;
+        const borderBottom = parseFloat(style.borderBottomWidth) || 0;
 
-            event.preventDefault();
-            const wheelDelta = event.deltaY !== 0 ? event.deltaY : event.deltaX;
-            scroller.scrollLeft += wheelDelta * speed;
-          };
+        const rawSpeed = Number(options.speed ?? scroller.dataset.wheelHorizontalSpeed);
+        const speed = Number.isFinite(rawSpeed) ? rawSpeed : 1;
 
-          scroller.addEventListener("wheel", onWheel, { passive: false });
-          scroller.dataset.horizontalWheelBound = "true";
-        }
+        const onWheel = (event) => {
+          const rect = scroller.getBoundingClientRect();
+          const y = event.clientY - rect.top;
 
-        document.querySelectorAll("[data-wheel-horizontal-scroll]").forEach((node) => {
-          enableBottomZoneHorizontalWheel(node);
-        });
+          const horizontalScrollbarThickness = Math.max(
+            0,
+            rect.height - scroller.clientHeight - borderTop - borderBottom
+          );
 
-        window.enableBottomZoneHorizontalWheel = enableBottomZoneHorizontalWheel;
-      })();
+          const rawZone = Number(options.zonePx);
+          const baseThickness = horizontalScrollbarThickness || systemScrollbarThickness;
+          const zoneThickness = Number.isFinite(rawZone) ? rawZone : baseThickness;
+
+          const usedThickness = Math.max(1, zoneThickness);
+          const activationStartY = rect.height - usedThickness;
+          const isInBottomZone = y > activationStartY && y <= rect.height;
+          const hasHorizontalOverflow = scroller.scrollWidth > scroller.clientWidth;
+
+          if (!isInBottomZone || !hasHorizontalOverflow) return;
+
+          event.preventDefault();
+          const wheelDelta = event.deltaY !== 0 ? event.deltaY : event.deltaX;
+          scroller.scrollLeft += wheelDelta * speed;
+        };
+
+        scroller.addEventListener("wheel", onWheel, { passive: false });
+        scroller.dataset.horizontalWheelBound = "true";
+      }
+
+      document.querySelectorAll("[data-wheel-horizontal-scroll]").forEach((node) => {
+        enableBottomZoneHorizontalWheel(node);
+      });
+      window.enableBottomZoneHorizontalWheel = enableBottomZoneHorizontalWheel;
     </script>
   </body>
 </html>
