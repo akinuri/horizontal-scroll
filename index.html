@@ -10,6 +10,7 @@
     <main class="min-h-screen p-8">
       <div class="mx-auto max-w-5xl">
         <section
+          id="paper-scroll"
           class="relative h-[420px] w-[560px] overflow-auto rounded-sm border border-stone-300 bg-white p-8 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),0_8px_18px_-8px_rgba(0,0,0,0.25)]"
           aria-label="paper"
         >
@@ -32,5 +33,31 @@
         </section>
       </div>
     </main>
+    <script>
+      (() => {
+        const scroller = document.getElementById("paper-scroll");
+        if (!scroller) return;
+
+        const bottomWheelZonePx = 22;
+
+        scroller.addEventListener(
+          "wheel",
+          (event) => {
+            const rect = scroller.getBoundingClientRect();
+            const localY = event.clientY - rect.top;
+            const isInBottomZone = localY >= scroller.clientHeight - bottomWheelZonePx;
+            const hasHorizontalOverflow = scroller.scrollWidth > scroller.clientWidth;
+
+            if (!isInBottomZone || !hasHorizontalOverflow) return;
+
+            event.preventDefault();
+
+            const wheelDelta = event.deltaY !== 0 ? event.deltaY : event.deltaX;
+            scroller.scrollLeft += wheelDelta;
+          },
+          { passive: false }
+        );
+      })();
+    </script>
   </body>
 </html>
