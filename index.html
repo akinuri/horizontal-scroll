@@ -108,8 +108,9 @@
 
                 const measuredThickness = rect.height - scroller.clientHeight - borderTop - borderBottom;
                 const scrollbarThickness = measuredThickness > 0 ? measuredThickness : remInPx;
+                const tolerance = scrollbarThickness * 0.25;
 
-                const isInBottomZone = y > rect.height - scrollbarThickness && y <= rect.height;
+                const isInBottomZone = y > rect.height - scrollbarThickness - tolerance && y <= rect.height;
                 const hasHorizontalOverflow = scroller.scrollWidth > scroller.clientWidth;
 
                 if (!isInBottomZone || !hasHorizontalOverflow) return;
